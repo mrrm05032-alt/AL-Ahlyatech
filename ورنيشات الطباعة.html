@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>ورنيشات الطباعة</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: #f9f9f6;
+      line-height: 1.8;
+    }
+
+    header {
+      background: linear-gradient(90deg, #3a6cf4, #2bdb07);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navigation a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      transition: 0.3s;
+      font-size: 1.2em;
+    }
+    .navigation a:hover {
+      color: #ffd700;
+    }
+
+    /* ====== المنتج ====== */
+    .single-product {
+      max-width: 1200px;
+      margin: auto;
+      padding: 100px 20px;
+    }
+    .product-details {
+      text-align: center;
+      margin-bottom: 50px;
+      animation: fadeInDown 1s ease;
+    }
+    .product-details h2 {
+      font-size: 3em;
+      font-weight: 800;
+      color: #3a6cf4;
+      margin-bottom: 20px;
+    }
+    .product-details p {
+      font-size: 1.4em;
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* ====== التطبيقات ====== */
+    .applications {
+      margin: 60px 0;
+      text-align: right;
+    }
+    .applications h3 {
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      font-weight: 800;
+      color: #2b2b2b;
+    }
+    .app-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 600px;
+      margin-right: 0;
+      margin-left: auto;
+    }
+    .app-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 1.3em;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateX(50px);
+      transition: 0.6s ease;
+    }
+    .app-item.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .circle {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.3em;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+    .circle:hover {
+      transform: scale(1.2);
+    }
+    .c1 { background: #3a6cf4; }
+    .c2 { background: #ff9800; }
+    .c3 { background: #4caf50; }
+    .c4 { background: #e91e63; }
+
+    /* ====== الصور ====== */
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+    .gallery-item {
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: 0.8s ease;
+      flex: 1 1 calc(33.333% - 25px);
+      max-width: 300px;
+    }
+    .gallery-item.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+    .caption {
+      margin-top: 12px;
+      font-weight: 700;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    /* ====== الفوتر ====== */
+    #footer {
+      margin-top: 70px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 0.8s ease;
+    }
+    #footer.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ====== انيميشن ====== */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navigation">
+    <a href="index.html">الرئيسية</a>
+    <a href="احبار مائيه.html">رجوع للمنتج الرئيسي</a>
+  </nav>
+</header>
+
+<section class="single-product">
+  <div class="product-details">
+    <h2>ورنيشات الطباعة</h2>
+    <p>
+      توفر الشركة أنواع متنوعة من الورنيشات المستخدمة في طباعة الفلكسو المائية، 
+      مما يمنح العميل إمكانية التحكم في الخصائص مثل الثبات، اللمعة، ومقاومة الاحتكاك.
+    </p>
+  </div>
+
+  <div class="applications">
+    <h3>التطبيق :</h3>
+    <div class="app-list">
+      <div class="app-item"><div class="circle c1">1</div> ورنيش لمعة عالية</div>
+      <div class="app-item"><div class="circle c2">2</div> ورنيش مطفي</div>
+      <div class="app-item"><div class="circle c3">3</div> ورنيش للحماية من الخدش</div>
+      <div class="app-item"><div class="circle c4">4</div> ورنيش للعبوات الورقية والكرتونية</div>
+    </div>
+  </div>
+
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="images/ورنيش1.webp" alt="ورنيش 1">
+      <div class="caption">ورنيش لمعة</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/ورنيش2.png" alt="ورنيش 2">
+      <div class="caption">ورنيش مطفي</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/ورنيش3.jpg" alt="ورنيش 3">
+      <div class="caption">ورنيش حماية</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/ورنيش4.png" alt="ورنيش 4">
+      <div class="caption">ورنيش كرتون</div>
+    </div>
+  </div>
+</section>
+
+<!-- الفوتر -->
+<div id="footer"></div>
+
+<script>
+  // استدعاء الفوتر
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("footer").innerHTML = data);
+
+  // اظهار العناصر بالسكرول
+  const apps = document.querySelectorAll('.app-item');
+  const gallery = document.querySelectorAll('.gallery-item');
+  const footer = document.getElementById("footer");
+
+  function showOnScroll() {
+    apps.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add('show');
+      }
+    });
+    gallery.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add('show');
+      }
+    });
+    const rectFooter = footer.getBoundingClientRect();
+    if (rectFooter.top < window.innerHeight - 50) {
+      footer.classList.add('show');
+    }
+  }
+  window.addEventListener('scroll', showOnScroll);
+  window.addEventListener('load', showOnScroll);
+</script>
+
+</body>
+</html>

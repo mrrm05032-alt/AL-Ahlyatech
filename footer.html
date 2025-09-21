@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الفوتر - الأهلية لتكنولوجيا الكيماويات</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+
+    :root {
+      --main-color: #3a6cf4;
+      --accent-color: #2bdb07;
+      --dark-bg: #111;
+      --light-text: #ddd;
+      --hover-color: #ffd700;
+    }
+
+    * {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fff;
+    }
+
+    /* ==========================
+       الفوتر
+    ========================== */
+    .footer {
+      background: var(--dark-bg);
+      color: var(--light-text);
+      padding: 50px 20px 20px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      gap: 40px;
+    }
+
+    .footer-col {
+      flex: 1 1 250px;
+      min-width: 220px;
+    }
+
+    .footer-logo {
+      font-size: 2em;
+      font-weight: 900;
+      color: var(--main-color);
+      margin-bottom: 10px;
+    }
+
+    .footer-description {
+      font-size: 0.95em;
+      color: #bbb;
+      line-height: 1.6;
+    }
+
+    .footer-col h4 {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+      font-weight: 700;
+      color: #fff;
+      position: relative;
+    }
+
+    .footer-col h4::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      right: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--main-color);
+      border-radius: 2px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul li a {
+      color: var(--light-text);
+      font-weight: 600;
+      font-size: 0.95em;
+      text-decoration: none;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--hover-color);
+      transform: translateX(-5px);
+    }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      background: #222;
+      color: #fff;
+      font-size: 1.2em;
+      margin: 0 6px;
+      padding: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      transition: transform 0.4s, background 0.3s;
+    }
+
+    .social-icons a:hover {
+      background: var(--main-color);
+      transform: scale(1.2) rotate(10deg);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #aaa;
+      border-top: 1px solid #333333;
+      padding-top: 15px;
+    }
+
+    .footer-bottom span {
+      color: var(--hover-color);
+      font-weight: bold;
+    }
+
+    /* ==========================
+       Responsive
+    ========================== */
+    @media (max-width: 992px) {
+      .footer-container {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-col {
+        min-width: 100%;
+      }
+
+      .footer-col h4::after {
+        right: 50%;
+        transform: translateX(50%);
+      }
+
+      .social-icons a {
+        margin: 8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer {
+        padding: 30px 15px 15px;
+      }
+
+      .footer-logo {
+        font-size: 1.5em;
+      }
+
+      .footer-col h4 {
+        font-size: 1.1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== الفوتر ========== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- العمود الأول -->
+      <div class="footer-col">
+        <h3 class="footer-logo">A.C.T</h3>
+        <p class="footer-description">
+          الأهلية لتكنولوجيا الكيماويات<br>
+          شريكك الموثوق في مجال الطباعة والتعبئة والتغليف.
+        </p>
+      </div>
+
+      <!-- العمود الثاني -->
+      <div class="footer-col">
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="about.html">من نحن</a></li>
+          <li><a href="products.html">منتجاتنا</a></li>
+          <li><a href="projects.html">مشاريعنا</a></li>
+          <li><a href="contact.html">اتصل بنا</a></li>
+        </ul>
+      </div>
+
+      <!-- العمود الثالث -->
+      <div class="footer-col">
+        <h4>خدماتنا</h4>
+        <ul>
+          <li><a href="احبار مائيه.HTML">تصنيع الأحبار</a></li>
+          <li><a href="مواد لاصقه.HTML">المواد اللاصقة</a></li>
+          <li><a href="vision.html">رؤيتنا</a></li>
+        </ul>
+      </div>
+
+      <!-- العمود الرابع -->
+      <div class="footer-col">
+        <h4>تواصل معنا</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <p class="footer-bottom">
+      جميع الحقوق محفوظة <span>الأهلية</span> &copy; 2025
+    </p>
+  </footer>
+
+</body>
+</html>

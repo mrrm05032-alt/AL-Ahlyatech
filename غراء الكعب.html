@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>غراء الكعب</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: #f9f9f6; /* أوف وايت */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* الهيدر */
+    header {
+      background: linear-gradient(90deg, #3a6cf4, #2bdb07);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .navigation a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2em;
+      font-weight: 600;
+      margin-left: 20px;
+      transition: 0.3s;
+    }
+    .navigation a:hover {
+      color: #ffd700;
+    }
+
+    /* القسم */
+    .single-product {
+      flex: 1;
+      padding: 120px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .product-details {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .product-details h2 {
+      font-size: 2.5em;
+      color: #3a6cf4;
+      margin-bottom: 15px;
+    }
+    .product-details p {
+      font-size: 1.3em;
+      font-weight: 600;
+      color: #333;
+      line-height: 2;
+    }
+
+    /* شبكة الصور */
+    .product-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.6s ease;
+      cursor: pointer;
+    }
+    .gallery-item.show img {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .gallery-item img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    .gallery-item p {
+      margin-top: 10px;
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #3a6cf4;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navigation">
+    <a href="index.html">الرئيسية</a>
+    <a href="مواد لاصقه.html">رجوع للمنتجات</a>
+  </nav>
+</header>
+
+<section class="single-product">
+  <div class="product-details">
+    <h2>غراء الكعب</h2>
+    <p>
+      يستخدم في لصق كعب الكتب ويتميز بقوة لصق عالية وسرعة جفاف مناسبة،  
+      كما أنه يعطي فيلم مرن بعد الجفاف مما يمنح كفاءة عالية في لصق ملازم الكتاب.
+    </p>
+  </div>
+
+  <!-- معرض الصور -->
+  <div class="product-gallery">
+    <div class="gallery-item">
+      <img src="images/مكن كعب.jpg" alt="غراء الكعب 1">
+      <p>غراء الكعب 1</p>
+    </div>
+    <div class="gallery-item">
+      <img src="images/كتاب.jpg" alt="غراء الكعب 2">
+      <p>غراء الكعب 2</p>
+    </div>
+    <div class="gallery-item">
+      <img src="images/كعب1.png" alt="غراء الكعب 3">
+      <p>غراء الكعب 3</p>
+    </div>
+  </div>
+</section>
+
+<div id="footer"></div>
+
+<script>
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("footer").innerHTML = data);
+
+  // إظهار الصور بحركة عند النزول
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  function showImagesOnScroll() {
+    galleryItems.forEach(item => {
+      const rect = item.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 50) {
+        item.classList.add('show');
+      }
+    });
+  }
+  window.addEventListener('scroll', showImagesOnScroll);
+  window.addEventListener('load', showImagesOnScroll);
+</script>
+
+</body>
+</html>

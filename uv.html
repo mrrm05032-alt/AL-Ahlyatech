@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>منتج 1</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .single-product {
+      padding: 120px 20px;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+    .single-product img {
+      flex: 1 1 400px;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .product-details {
+      flex: 1 1 500px;
+    }
+    .product-details h2 {
+      font-size: 2.5em;
+      color: var(--main-color);
+      margin-bottom: 20px;
+    }
+    .product-details p {
+      font-size: 1.2em;
+      color: #333;
+      line-height: 1.9;
+    }
+    @media (max-width: 768px) {
+      .single-product {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navigation">
+    <a href="index.html">الرئيسية</a>
+    <a href="ورنيشات فوق الطباعه.HTML">رجوع للمنتج الرئيسي</a>
+  </nav>
+</header>
+
+<section class="single-product">
+  <img src="images/مائي2.jpg" alt="منتج 1">
+  <div class="product-details">
+    <h2>ورنيش يو في</h2>
+    <p>
+      يستخدم لحماية الاسطح الطباعية ويتمسز باللمعة العاليه
+      ويتميز بمقاومة الاحتكاك والكيماويات كما انه عديم الرائحة
+      وكما تنتج الشركة انواع عديدة من الورنيش
+    </p>
+        <p>
+      1- ورنيش لزوجه خفيفة خاص بماكيمات الخطوط
+    </p>
+        <p>
+      2- ورنيشلزوجه عالية خاص بماكينات الاوفست
+    </p>
+  </div>
+</section>
+
+<footer class="footer">
+  <p class="footer-title">جميع الحقوق

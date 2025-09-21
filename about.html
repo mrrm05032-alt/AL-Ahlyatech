@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>من نحن - الأهلية لتكنولوجيا الكيماويات</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+
+    :root {
+      --main-color: #3a6cf4;
+      --accent-color: #2bdb07;
+      --text-color: #fff;
+    }
+
+    * {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #fff;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    /* ================== الهيدر ================== */
+    header {
+      background: linear-gradient(90deg, #3a6cf4, #2bdb07);
+      width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 50px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-text {
+      font-size: 1.6em;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .logo-img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+    }
+
+    .navigation {
+      display: flex;
+      gap: 20px;
+    }
+
+    .navigation a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .navigation a:hover,
+    .navigation a.active {
+      color: #ffd700;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8em;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* ================== البانر ================== */
+    .about-banner {
+      background: url("images/B2.webp") center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 120px 20px;
+      margin-top: 70px;
+      position: relative;
+    }
+
+    .about-banner::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-banner h2 {
+      font-size: 2.5em;
+      margin-bottom: 15px;
+    }
+
+    .banner-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .banner-buttons a {
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .banner-buttons .btn {
+      background: #fff;
+      color: var(--main-color);
+    }
+
+    .banner-buttons .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .banner-buttons .btn.secondary {
+      background: #ffd700;
+      color: #000;
+    }
+
+    /* ================== قسم من نحن ================== */
+    .about-section {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .about-row {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+    }
+
+    .about-row.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .about-image {
+      flex: 1 1 500px;
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 15px;
+      display: block;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      background: rgba(58, 108, 244, 0.9);
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      font-weight: 700;
+      border-radius: 15px 15px 0 0;
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: all 0.8s ease-in-out;
+    }
+
+    .image-overlay.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .about-text {
+      flex: 1 1 500px;
+      background: #f9f9f9;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .about-text h2 {
+      font-size: 2em;
+      color: var(--main-color);
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      font-size: 1.1em;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    /* ================== Animation ================== */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-in-out;
+    }
+
+    .fade-in-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ================== Responsive ================== */
+    @media (max-width: 992px) {
+      .about-row {
+        flex-direction: column;
+      }
+      .about-row.reverse {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navigation {
+        display: none;
+        flex-direction: column;
+        background: linear-gradient(90deg, #3a6cf4, #2bdb07);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        padding: 15px;
+        border-radius: 8px;
+      }
+      .navigation.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================== الهيدر ================== -->
+  <header>
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <nav class="navigation" id="nav">
+      <a href="index.html">الصفحة الرئيسية</a>
+      <a href="about.html" class="active">من نحن</a>
+      <a href="products.html">منتجاتنا</a>
+      <a href="projects.html">مشاريعنا</a>
+      <a href="contact.html">اتصل بنا</a>
+    </nav>
+
+    <a href="index.html" class="logo">
+      <span class="logo-text">A.C.T</span>
+      <img src="images/لوجو.jpg" alt="ACT Logo" class="logo-img">
+    </a>
+  </header>
+
+  <!-- ================== بانر من نحن ================== -->
+  <section class="about-banner fade-in-up">
+    <div class="banner-content">
+      <h2>من نحن</h2>
+      <div class="banner-buttons">
+        <a href="contact.html" class="btn">اتصل بنا</a>
+        <a href="products.html" class="btn secondary">منتجاتنا</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================== قسم من نحن ================== -->
+  <section class="about-section">
+    <div class="about-row fade-in-up">
+      <div class="about-image">
+        <div class="image-overlay">من نحن</div>
+        <img src="images/B2.webp" alt="من نحن - صورة 1">
+      </div>
+      <div class="about-text">
+        <h2>من نحن</h2>
+        <p>
+          تأسست الأهلية لتكنولوجيا الكيماويات عام 2012 كشركة مساهمة مصرية متخصصة 
+          في تصنيع أحبار الطباعة، المواد اللاصقة، والكيماويات الخاصة بصناعة التعبئة والتغليف.
+        </p>
+      </div>
+    </div>
+
+    <div class="about-row reverse fade-in-up">
+      <div class="about-image">
+        <div class="image-overlay">رسالتنا</div>
+        <img src="images/B3.webp" alt="من نحن - صورة 2">
+      </div>
+      <div class="about-text">
+        <h2>رسالتنا</h2>
+        <p>
+          نلتزم بتقديم منتجات عالية الجودة بأسعار مناسبة، مع دعم متواصل لعملائنا 
+          وضمان تطوير مستدام في كل ما نقدمه، لنكون شركاء نجاح في رحلتهم.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================== الفوتر ================== -->
+  <div id="footer"></div>
+  <script>
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
+
+  <!-- ================== JavaScript ================== -->
+  <script>
+    // منيو الموبايل
+    const menuToggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav');
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('show');
+    });
+
+    // الأنيميشن عند الاسكرول
+    const elements = document.querySelectorAll('.fade-in-up, .image-overlay, .about-banner');
+    function showOnScroll() {
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('show');
+        }
+      });
+    }
+    window.addEventListener('scroll', showOnScroll);
+    window.addEventListener('load', showOnScroll);
+  </script>
+
+</body>
+</html>

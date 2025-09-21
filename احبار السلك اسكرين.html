@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أحبار السلك اسكرين</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ============ الهيدر ============ */
+    header {
+      background: linear-gradient(90deg, #3a6cf4, #2bdb07);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navigation a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      transition: 0.3s;
+      font-size: 1.2em;
+    }
+    .navigation a:hover {
+      color: #ffd700;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .logo-text {
+      font-size: 1.5em;
+      font-weight: 900;
+      color: #fff;
+      margin-left: 10px;
+    }
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    /* ================== المنتج ================== */
+    .single-product {
+      padding: 120px 20px;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .product-details h2 {
+      font-size: 2.5em;
+      color: #3a6cf4;
+      margin-bottom: 20px;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .product-details p {
+      font-size: 1.2em;
+      color: #333;
+      line-height: 1.9;
+      animation: fadeInUp 1.2s ease forwards;
+    }
+
+    .gallery {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.4s ease;
+      cursor: pointer;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+
+    /* تكبير الصورة عند المرور */
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+
+    /* ================== حركات ================== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============ الهيدر ============ -->
+<header>
+  <div class="menu-toggle" id="menu-toggle">
+    <i class="fas fa-bars" style="color:#fff;font-size:1.5em;"></i>
+  </div>
+
+  <nav class="navigation" id="nav">
+    <a href="index.html">الرئيسية</a>
+    <a href="احبار مائيه.html">رجوع للمنتج الرئيسي</a>
+  </nav>
+
+  <a href="index.html" class="logo">
+    <span class="logo-text">A.C.T</span>
+    <img src="images/لوجو.jpg" alt="ACT Logo" class="logo-img">
+  </a>
+</header>
+
+<!-- ============ تفاصيل المنتج ============ -->
+<section class="single-product">
+  <div class="product-details">
+    <h2>أحبار السلك اسكرين</h2>
+    <p>
+      يتميز هذا النوع بجفاف مناسب لعملية الطباعة وثبات الألوان وقوتها.
+    </p>
+  </div>
+
+  <div class="gallery">
+    <img src="images/سلك اسكرين1.jpg" alt="سلك اسكرين 1">
+    <img src="images/سلك اسكرين2.jpg" alt="سلك اسكرين 2">
+    <img src="images/سلك اسكرين3.jpg" alt="سلك اسكرين 3">
+  </div>
+</section>
+
+<!-- ============ الفوتر ============ -->
+<div id="footer"></div>
+<script>
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("footer").innerHTML = data);
+
+  // القائمة (موبايل)
+  const menuToggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('nav');
+  menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>غراء العلب</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: #f9f9f6; /* أوف وايت */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ====== الهيدر زي السلوفان ====== */
+    header {
+      background: linear-gradient(90deg, #3a6cf4, #2bdb07);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .navigation a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2em;
+      font-weight: 600;
+      margin-left: 20px;
+      transition: 0.3s;
+    }
+    .navigation a:hover {
+      color: #ffd700;
+    }
+
+    /* ====== محتوى الصفحة ====== */
+    .single-product {
+      padding: 120px 20px;
+      max-width: 1000px;
+      margin: auto;
+      flex: 1;
+    }
+    .product-details {
+      margin-bottom: 40px;
+      text-align: center;
+      animation: slideDown 1s ease forwards;
+    }
+    .product-details h2 {
+      font-size: 2.5em;
+      color: #3a6cf4;
+      margin-bottom: 15px;
+    }
+    .intro-text {
+      font-size: 1.3em;
+      font-weight: 700;
+      color: #222;
+      margin-top: -5px;
+      margin-bottom: 30px;
+      line-height: 1.8;
+    }
+
+    /* كل منتج */
+    .product-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 25px;
+      text-align: right;
+      opacity: 0;
+      transform: translateX(50px);
+      animation: slideIn 1s ease forwards;
+    }
+    .product-item:nth-child(2) { animation-delay: 0.5s; }
+    .product-item:nth-child(3) { animation-delay: 1s; }
+
+    .product-number {
+      width: 45px;
+      height: 45px;
+      background-color: #3a6cf4;
+      color: #fff;
+      font-size: 1.3em;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .product-info h3 {
+      font-size: 1.3em;
+      color: #095806;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .product-info p {
+      font-size: 1.2em;
+      color: #000;
+      line-height: 1.9;
+      font-weight: 600;
+    }
+
+    /* شبكة الصور */
+    .product-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 👈 3 صور جنب بعض */
+      gap: 25px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 250px; /* 👈 نفس الطول */
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: transform 0.2s ease, opacity 0.6s ease;
+      cursor: pointer;
+    }
+    .gallery-item.show img {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .gallery-item img:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      transform: scale(1.1);
+    }
+    .gallery-item p {
+      margin-top: 10px;
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #444;
+    }
+
+    /* الحركات */
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* الفوتر */
+    #footer {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ====== الهيدر ====== -->
+<header>
+  <nav class="navigation">
+    <a href="index.html">الرئيسية</a>
+    <a href="مواد لاصقه.html">رجوع للمنتجات</a>
+  </nav>
+</header>
+
+<!-- ====== محتوى غراء العلب ====== -->
+<section class="single-product">
+  <div class="product-details">
+    <h2>غراء العلب</h2>
+    <p class="intro-text">
+      يستخدم هذا المنتج للصق العلب المصنعة من الدوبلكس والتي تُستخدم في تعبئة الأدوبة والمواد الغذائية.  
+      وتنتج الشركة ثلاث أنواع من هذا المنتج:
+    </p>
+
+    <div class="product-item">
+      <div class="product-number">1</div>
+      <div class="product-info">
+        <h3>غراء العلب المغطاة بورنيش UV</h3>
+        <p>مخصص للعلب المطلية بالـ UV، يتميز بقوة لصق عالية وسرعة جفاف.</p>
+      </div>
+    </div>
+
+    <div class="product-item">
+      <div class="product-number">2</div>
+      <div class="product-info">
+        <h3>غراء العلب المغطاة بالورنيش المائي (OPV)</h3>
+        <p>يعطي التصاق قوي وجودة عالية مع العلب المطلية بورنيش مائي.</p>
+      </div>
+    </div>
+
+    <div class="product-item">
+      <div class="product-number">3</div>
+      <div class="product-info">
+        <h3>غراء العلب الدوبلكس بدون ورنيش</h3>
+        <p>حل عملي للصق العلب الغير مطلية مع أداء ثابت وكفاءة ممتازة.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- معرض الصور -->
+  <div class="product-gallery">
+    <div class="gallery-item">
+      <img src="images/علب 3.webp" alt="غراء العلب 1">
+      <p>غراء العلب 1</p>
+    </div>
+    <div class="gallery-item">
+      <img src="images/علب1.png" alt="غراء العلب 2">
+      <p>غراء العلب 2</p>
+    </div>
+    <div class="gallery-item">
+      <img src="images/علب2.png" alt="غراء العلب 3">
+      <p>غراء العلب 3</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== الفوتر ====== -->
+<div id="footer"></div>
+
+<script>
+  // إظهار الصور بحركة عند النزول
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  function showImagesOnScroll() {
+    galleryItems.forEach(item => {
+      const rect = item.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 50) {
+        item.classList.add('show');
+      }
+    });
+  }
+  window.addEventListener('scroll', showImagesOnScroll);
+  window.addEventListener('load', showImagesOnScroll);
+
+  // Tilt Effect + Zoom
+  const imgs = document.querySelectorAll('.gallery-item img');
+  imgs.forEach(img => {
+    img.addEventListener('mousemove', e => {
+      const rect = img.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * 8; 
+      const rotateY = ((x - centerX) / centerX) * 8;
+      img.style.transform = `scale(1.1) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+    img.addEventListener('mouseleave', () => {
+      img.style.transform = "scale(1) rotateX(0) rotateY(0)";
+    });
+  });
+
+  // استدعاء الفوتر
+  fetch("footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer").innerHTML = data;
+    });
+</script>
+
+</body>
+</html>

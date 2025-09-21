@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>غراء الكرتون</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .single-product {
+      padding: 120px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .product-details {
+      margin-bottom: 40px;
+      text-align: center;
+      animation: slideDown 1s ease forwards;
+    }
+    .product-details h2 {
+      font-size: 2.5em;
+      color: var(--main-color);
+      margin-bottom: 15px;
+    }
+    .intro-text {
+      font-size: 1.3em;
+      font-weight: 700;
+      color: #222;
+      margin-top: -5px;
+      margin-bottom: 30px;
+    }
+
+    /* كل منتج */
+    .product-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 25px;
+      text-align: right;
+      opacity: 0;
+      transform: translateX(50px);
+      animation: slideIn 1s ease forwards;
+    }
+    .product-item:nth-child(2) { animation-delay: 0.5s; }
+    .product-item:nth-child(3) { animation-delay: 1s; }
+
+    .product-number {
+      width: 45px;
+      height: 45px;
+      background-color: var(--main-color);
+      color: #fff;
+      font-size: 1.3em;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .product-info h3 {
+      font-size: 1.3em;
+      color: #095806;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .product-info p {
+      font-size: 1.2em;
+      color: #000;
+      line-height: 1.9;
+      font-weight: 600;
+    }
+
+    /* شبكة الصور */
+    .product-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .gallery-item img {
+      width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: transform 0.2s ease, opacity 0.6s ease;
+      cursor: pointer;
+    }
+    .gallery-item.show img {
+      opacity: 1;
+      transform: scale(1);
+    }
+    /* تكبير + ظل */
+    .gallery-item img:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    .gallery-item p {
+      margin-top: 10px;
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #444;
+    }
+
+    /* الحركات */
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* علشان الفوتر يبقى مظبوط */
+    #footer {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navigation">
+    <a href="index.html">الرئيسية</a>
+    <a href="مواد لاصقه.html">رجوع للمنتجات</a>
+  </nav>
+</header>
+
+<section class="single-product">
+  <div class="product-details">
+    <h2>غراء الكرتون</h2>
+    <p class="intro-text">
+      يستخدم للصق علب الكرتون، وتقدم الشركة نوعان من هذا المنتج:
+    </p>
+
+    <!-- المنتج الأول -->
+    <div class="product-item">
+      <div class="product-number">1</div>
+      <div class="product-info">
+        <h3>غراء لسان الكرتون</h3>
+        <p>
+          مخصص لماكينات الحقن <em>(Injection)</em>، يتميز بقوام مناسب للماكينة،  
+          جاهز للاستخدام مباشرة بدون تخفيف، ذو قوة لصق عالية وجفاف سريع.
+        </p>
+      </div>
+    </div>
+
+    <!-- المنتج الثاني -->
+    <div class="product-item">
+      <div class="product-number">2</div>
+      <div class="product-info">
+        <h3>غراء الديسك</h3>
+        <p>
+          يتميز بقوام مناسب ويمكن تخفيفه بالماء حسب الحاجة.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- صور المنتج -->
+  <div class="product-gallery">
+    <div class="gallery-item">
+      <img src="images/برميل غراء ف مصنع.png" alt="برميل غراء في المصنع">
+      <p>برميل غراء بالمصنع</p>
+    </div>
+    <div class="gallery-item">
+      <img src="images/غراء كرتون يدوي.png" alt="غراء كرتون يدوي">
+      <p>غراء كرتون يدوي</p>
+    </div>
+    <div class="gallery-item">
+      <img src="images/غراء كرتون مكن.png" alt="غراء كرتون مكن">
+      <p>غراء كرتون مكن</p>
+    </div>
+  </div>
+</section>
+
+<!-- الفوتر -->
+<div id="footer"></div>
+
+<script>
+  // إظهار الصور بحركة عند النزول
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  function showImagesOnScroll() {
+    galleryItems.forEach(item => {
+      const rect = item.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 50) {
+        item.classList.add('show');
+      }
+    });
+  }
+  window.addEventListener('scroll', showImagesOnScroll);
+  window.addEventListener('load', showImagesOnScroll);
+
+  // Tilt Effect + Zoom
+  const imgs = document.querySelectorAll('.gallery-item img');
+  imgs.forEach(img => {
+    img.addEventListener('mousemove', e => {
+      const rect = img.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * 8; 
+      const rotateY = ((x - centerX) / centerX) * 8;
+      img.style.transform = `scale(1.1) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+    img.addEventListener('mouseleave', () => {
+      img.style.transform = "scale(1) rotateX(0) rotateY(0)";
+    });
+  });
+
+  // استدعاء الفوتر
+  fetch("footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer").innerHTML = data;
+    });
+</script>
+
+</body>
+</html>

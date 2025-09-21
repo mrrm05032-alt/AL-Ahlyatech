@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>الأحبار الفلكسو</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: #f9f9f6;
+      overflow-x: hidden;
+    }
+
+    /* ====== الهيدر ====== */
+    header {
+      background: linear-gradient(90deg, #3a6cf4, #2bdb07);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: slideDown 1s ease;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+    }
+    .navigation {
+      display: flex;
+      gap: 20px;
+    }
+    .navigation a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: 0.3s;
+    }
+    .navigation a:hover {
+      color: #ffd700;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      font-size: 1.5em;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .logo-img {
+      width: 45px;
+      height: 45px;
+      border-radius: 30%;
+      object-fit: cover;
+    }
+
+    /* ====== صفحة المنتج ====== */
+    .product-page {
+      padding: 160px 20px 80px; /* نزلنا الصفحة تحت شوية */
+      text-align: center;
+      animation: fadeIn 1.2s ease;
+    }
+    .product-page h2 {
+      color: #3a6cf4;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      animation: fadeUp 1.2s ease;
+    }
+    .product-page p {
+      font-size: 1.3em;
+      color: #333;
+      max-width: 800px;
+      margin: 20px auto;
+      line-height: 2;
+      animation: fadeUp 1.5s ease;
+    }
+    .product-page img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 12px;
+      margin: 30px auto;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      display: block;
+      animation: zoomIn 1.2s ease;
+    }
+
+    /* ====== الأزرار ====== */
+    .sub-buttons {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      animation: fadeUp 1.8s ease;
+    }
+    .sub-buttons a {
+      padding: 12px 25px;
+      background: linear-gradient(135deg, #3a6cf4, #2bdb07);
+      color: #fff;
+      font-size: 1.1em;
+      font-weight: 700;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+    .sub-buttons a:hover {
+      transform: scale(1.08);
+      opacity: 0.9;
+    }
+
+    /* ====== انيميشن ====== */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @keyframes fadeUp {
+      from {opacity: 0; transform: translateY(40px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes slideDown {
+      from {opacity: 0; transform: translateY(-60px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes zoomIn {
+      from {opacity: 0; transform: scale(0.8);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    /* ====== موبايل ====== */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+      .navigation {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .product-page h2 {
+        font-size: 2em;
+      }
+      .product-page p {
+        font-size: 1.1em;
+      }
+      .sub-buttons a {
+        font-size: 1em;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navigation">
+    <a href="index.html">الرئيسية</a>
+    <a href="about.html">من نحن</a>
+    <a href="products.html">منتجاتنا</a>
+  </nav>
+  <a href="index.html" class="logo">
+    <span class="logo-text">A.C.T</span>
+    <img src="images/لوجو.jpg" alt="ACT Logo" class="logo-img">
+  </a>
+</header>
+
+<section class="product-page">
+  <h2>الأحبار الفلكسو</h2>
+  <img src="images/B1.jpg" alt="منتج 1">
+  <p>
+    تلبي الشركة احتياجات قطاع عريض من العملاء من الأحبار الفلكسو المائية التي تعمل في تطبيقات متنوعة.
+  </p>
+
+  <div class="sub-buttons">
+    <a href="احبار الكرتون.html">احبار الكرتون</a>
+    <a href="احبار الشكائر.html">احبار الشكائر الورقية</a>
+    <a href="الاكواب الورقيه.html">الأكواب الورقية</a>
+    <a href="الاكياس الورقيه.html">الأكياس الورقية</a>
+    <a href="احبار السلك اسكرين.html">السلك اسكرين</a>
+    <a href="ورنيشات الطباعة.html">ورنيشات الطباعة</a>
+    <a href="بجمنات.html">ملونات مائية</a>
+  </div>
+</section>
+
+<!-- ✅ استدعاء الفوتر من ملف خارجي -->
+<div id="footer"></div>
+<script>
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("footer").innerHTML = data);
+</script>
+
+</body>
+</html>

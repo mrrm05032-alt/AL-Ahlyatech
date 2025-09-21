@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>رؤيتنا ورسالتنا</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #3a6cf4, #2bdb07);
+      min-height: 100vh;
+    }
+
+    .vision-container {
+      max-width: 1000px;
+      margin: 120px auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .vision-container h2 {
+      text-align: center;
+      font-size: 2.8em;
+      color: var(--main-color);
+      margin-bottom: 40px;
+    }
+
+    .vision-block {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .vision-text {
+      flex: 1 1 400px;
+    }
+
+    .vision-text h3 {
+      font-size: 2em;
+      font-weight: 800;
+      color: #095806;
+      margin-bottom: 15px;
+    }
+
+    .vision-text p {
+      font-size: 1.2em;
+      color: #333;
+      line-height: 1.9;
+    }
+
+    .vision-image {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+
+    .vision-image img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .vision-block {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navigation">
+    <a href="index.html">الرئيسية</a>
+  </nav>
+  <a href="index.html" class="logo">
+    <span class="logo-text">A.C.T</span>
+    <img src="images/لوجو.jpg" alt="ACT Logo" class="logo-img">
+  </a>
+</header>
+
+<div class="vision-container fade-in-up">
+  <h2 class="fade-in-up">رؤيتنا ورسالتنا</h2>
+
+  <!-- الرؤية -->
+  <div class="vision-block fade-in-up">
+    <div class="vision-text">
+      <h3>الرؤية</h3>
+      <p>
+        أن تصبح الشركة الأهلية لتكنولوجيا الكيماويات الأولى في مجالها في مصر والشرق الأوسط،  
+        وأن تحظى بثقة عملائها في الداخل والخارج.
+      </p>
+    </div>
+    <div class="vision-image">
+      <img src="images/B4.jpg" alt="صورة الرؤية">
+    </div>
+  </div>
+
+  <!-- الرسالة -->
+  <div class="vision-block fade-in-up">
+    <div class="vision-text">
+      <h3>الرسالة</h3>
+      <p>
+        الشركة الأهلية لتكنولوجيا الكيماويات شركة متخصصة في إنتاج وبيع الكيماويات اللازمة في صناعة التعبئة والتغليف  
+        من أحبار ومواد لاصقة وكيماويات مساعدة في الطباعة.  
+        تسعى دائمًا إلى تلبية احتياجات العملاء من خلال منتج بجودة عالية وسعر مناسب في الزمان والمكان المناسب للعميل.
+      </p>
+    </div>
+    <div class="vision-image">
+      <img src="images/B1.jpg" alt="صورة الرسالة">
+    </div>
+  </div>
+</div>
+
+<footer class="footer fade-in-up">
+  <p class="footer-title">جميع الحقوق محفوظة <span>الأهلية</span></p>
+</footer>
+
+<!-- JavaScript -->
+<script>
+  // كود الأنيميشن
+  const elements = document.querySelectorAll('.fade-in-up');
+
+  function showOnScroll() {
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add('show');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', showOnScroll);
+  window.addEventListener('load', showOnScroll);
+</script>
+
+</body>
+</html>

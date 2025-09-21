@@ -1,0 +1,441 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+
+:root {
+  --main-color: #3a6cf4;
+  --dark-color: #000016;
+  --text-color: #022c05;
+}
+
+* {
+  font-family: 'Cairo', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  direction: rtl;
+  line-height: 1.8;
+  background-color: #fff;
+}
+
+/* ========================== الهيدر ========================== */
+header {
+  background: linear-gradient(90deg, #3a6cf4, #2bdb07);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 80px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-text {
+  font-size: 2em;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.logo-img {
+  height: 45px;
+  width: auto;
+  border-radius: 50%;
+}
+
+.navigation {
+  display: flex;
+  gap: 30px;
+}
+
+.navigation a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.navigation a:hover {
+  color: #ffd700;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2em;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* ========================== القسم الرئيسي ========================== */
+section {
+  padding: 100px 200px;
+}
+
+.main {
+  margin-top: 80px;
+}
+
+.main h2 {
+  font-size: 3.5em;
+  font-weight: 900;
+  color: var(--main-color);
+}
+
+.main p {
+  font-size: 1.5em;
+  line-height: 2;
+}
+
+.side-img {
+  width: 55%;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+.main-buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.main-btn {
+  color: #fff;
+  background: linear-gradient(135deg, #3a6cf4, #2bdb07);
+  border: none;
+  font-size: 1.4em;
+  font-weight: 700;
+  padding: 0.9em 2.2em;
+  border-radius: 40px;
+  transition: 0.3s ease;
+}
+
+.main-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.08);
+}
+
+/* ========================== بانر من نحن (شريط صغير) ========================== */
+.about-banner {
+  background: linear-gradient(90deg, #3a6cf4, #2bdb07);
+  color: #fff;
+  text-align: center;
+  padding: 25px 20px;
+  margin-top: 50px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.about-banner h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.banner-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.banner-buttons .btn {
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1em;
+  text-decoration: none;
+  transition: 0.3s ease;
+  background: #fff;
+  color: var(--main-color);
+}
+
+.banner-buttons .btn:hover {
+  transform: scale(1.05);
+}
+
+.banner-buttons .btn.secondary {
+  background: #ffd700;
+  color: #000;
+}
+
+/* ========================== قسم من نحن ========================== */
+.about-section {
+  padding: 100px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.about-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.about-image {
+  position: relative;
+  flex: 1 1 500px;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.about-text {
+  flex: 1 1 500px;
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.about-text h2 {
+  font-size: 2em;
+  color: var(--main-color);
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  font-size: 1.1em;
+  line-height: 1.9;
+  color: #333;
+}
+
+.about-row.reverse {
+  flex-direction: row-reverse;
+}
+
+/* ========================== الشريط فوق الصور ========================== */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: rgba(58, 108, 244, 0.9);
+  color: #fff;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 1.3em;
+  text-align: center;
+  border-radius: 12px 12px 0 0;
+
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 0.8s ease-in-out;
+}
+
+.image-overlay.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================== المشاريع ========================== */
+.projects .title {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--main-color);
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+.project-image img {
+  width: 100%;
+  display: block;
+}
+
+.project-info {
+  padding: 20px;
+  text-align: right;
+}
+
+.project-category {
+  color: #888;
+  font-size: 0.9em;
+}
+
+.project-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.project-title span {
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.more-details {
+  text-decoration: none;
+  color: var(--main-color);
+  font-weight: 600;
+}
+
+/* ========================== اتصل بنا ========================== */
+.contact .title {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--main-color);
+}
+
+.cards .content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  flex: 1 1 250px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card .icon {
+  font-size: 2em;
+  color: var(--main-color);
+  margin-bottom: 10px;
+}
+
+.card .info h3 {
+  font-size: 1.3em;
+  margin-bottom: 8px;
+}
+
+.card .info p {
+  color: #555;
+}
+
+/* ========================== الأنيميشن ========================== */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-in-out;
+}
+
+.fade-in-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================== Responsive ========================== */
+@media (max-width: 768px) {
+  header {
+    padding: 10px 20px;
+  }
+
+  .navigation {
+    display: none;
+    flex-direction: column;
+    background: #3a6cf4;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .navigation.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  section {
+    padding: 80px 20px;
+  }
+
+  .about-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .banner-buttons {
+    justify-content: center;
+  }
+
+  .about-row,
+  .about-row.reverse {
+    flex-direction: column;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+}
+
+/* ========================== قسم منتجاتنا ========================== */
+.products {
+  text-align: center;
+  padding: 100px 20px;
+  background: #f9f9f9;
+}
+
+.products .title {
+  font-size: 2.5em;
+  color: var(--main-color);
+  margin-bottom: 40px;
+  font-weight: 900;
+}
+
+.products-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.product-btn {
+  display: inline-block;
+  padding: 15px 35px;
+  background: linear-gradient(135deg, #3a6cf4, #2bdb07);
+  color: #fff;
+  font-size: 1.3em;
+  font-weight: 700;
+  border-radius: 40px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.product-btn:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}

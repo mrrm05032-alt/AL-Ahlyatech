@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>غراء الخشب</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: #f9f9f6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ====== الهيدر ====== */
+    header {
+      background: linear-gradient(90deg, #3a6cf4, #2bdb07);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .navigation a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2em;
+      font-weight: 600;
+      margin-left: 20px;
+      transition: 0.3s;
+    }
+    .navigation a:hover {
+      color: #ffd700;
+    }
+
+    /* ====== المحتوى ====== */
+    .single-product {
+      padding: 120px 20px;
+      max-width: 1000px;
+      margin: auto;
+      flex: 1;
+    }
+    .product-details {
+      margin-bottom: 40px;
+      text-align: center;
+      animation: slideDown 1s ease forwards;
+    }
+    .product-details h2 {
+      font-size: 2.5em;
+      color: #3a6cf4;
+      margin-bottom: 15px;
+    }
+    .product-details p {
+      font-size: 1.2em;
+      color: #333;
+      line-height: 1.9;
+      font-weight: 600;
+    }
+
+    /* شبكة الصور */
+    .product-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: transform 0.2s ease, opacity 0.6s ease;
+      cursor: pointer;
+    }
+    .gallery-item.show img {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .gallery-item img:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      transform: scale(1.1);
+    }
+    .gallery-item p {
+      margin-top: 10px;
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #444;
+    }
+
+    /* الحركات */
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* الفوتر */
+    #footer {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ====== الهيدر ====== -->
+<header>
+  <nav class="navigation">
+    <a href="index.html">الرئيسية</a>
+    <a href="مواد لاصقه.html">رجوع للمنتجات</a>
+  </nav>
+</header>
+
+<!-- ====== المحتوى ====== -->
+<section class="single-product">
+  <div class="product-details">
+    <h2>غراء الخشب</h2>
+    <p>
+      يستخدم للصق الأسطح الخشبية يدويًا أو آليًا على البارد،  
+      ويمكن تخفيفه بالماء ويتميز بقوة اللصق وسرعة الجفاف.
+    </p>
+  </div>
+
+  <!-- الصور -->
+  <div class="product-gallery">
+    <div class="gallery-item">
+      <img src="images/خشب2.webp" alt="غراء الخشب 1">
+      <p>غراء الخشب 1</p>
+    </div>
+    <div class="gallery-item">
+      <img src="images/خشب 3.avif" alt="غراء الخشب 2">
+      <p>غراء الخشب 2</p>
+    </div>
+    <div class="gallery-item">
+      <img src="images/خشب 1.avif" alt="غراء الخشب 3">
+      <p>غراء الخشب 3</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== الفوتر ====== -->
+<div id="footer"></div>
+
+<script>
+  // إظهار الصور بحركة عند النزول
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  function showImagesOnScroll() {
+    galleryItems.forEach(item => {
+      const rect = item.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 50) {
+        item.classList.add('show');
+      }
+    });
+  }
+  window.addEventListener('scroll', showImagesOnScroll);
+  window.addEventListener('load', showImagesOnScroll);
+
+  // Tilt Effect + Zoom
+  const imgs = document.querySelectorAll('.gallery-item img');
+  imgs.forEach(img => {
+    img.addEventListener('mousemove', e => {
+      const rect = img.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * 8; 
+      const rotateY = ((x - centerX) / centerX) * 8;
+      img.style.transform = `scale(1.1) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+    img.addEventListener('mouseleave', () => {
+      img.style.transform = "scale(1) rotateX(0) rotateY(0)";
+    });
+  });
+
+  // استدعاء الفوتر
+  fetch("footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer").innerHTML = data;
+    });
+</script>
+
+</body>
+</html>
