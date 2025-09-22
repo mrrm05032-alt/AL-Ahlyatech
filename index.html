@@ -19,7 +19,7 @@
       .navigation {
         display: none;
         flex-direction: column;
-        background: #fff;
+        background: green; /* خلفية خضراء */
         position: absolute;
         top: 70px;
         right: 0;
@@ -37,7 +37,23 @@
         font-size: 1.8rem;
         cursor: pointer;
       }
+
+      .navigation a {
+        display: block;
+        color: blue !important;   /* نص أزرق */
+        font-size: 16px;
+        font-weight: bold;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        text-decoration: none;
+      }
+
+      .navigation a:hover {
+        color: #fff !important; /* يبقى أبيض عند اللمس/المرور */
+      }
     }
+  </style>
+
 
     /* شاشات الموبايل الصغيرة */
     @media (max-width: 600px) {
@@ -133,3 +149,4 @@
 
 </body>
 </html>
+
